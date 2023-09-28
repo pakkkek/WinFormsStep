@@ -25,8 +25,8 @@ namespace WinFormsApp1
                 if (resultDialog2 == DialogResult.OK)
                 {
                     string message3 = "That`s all!";
-                    int symbolcount = (message.Length + message2.Length + message3.Length) / 3;
-                    MessageBox.Show(message3, "" + symbolcount + "");
+                    int symbolCount = (message.Length + message2.Length + message3.Length) / 3;
+                    MessageBox.Show(message3, "" + symbolCount + "");
                 }
             }
         }
