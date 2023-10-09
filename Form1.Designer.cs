@@ -28,49 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            label1 = new Label();
+            guessButton = new Button();
+            instructionLabel = new Label();
+            guessTextBox = new TextBox();
             SuspendLayout();
             // 
-            // button1
+            // guessButton
             // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.Font = new Font("Druk Wide Bold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(315, 157);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 50);
-            button1.TabIndex = 0;
-            button1.Text = "Bio";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += GetNotificationBio;
+            guessButton.AccessibleName = "guessButton";
+            guessButton.Location = new Point(223, 38);
+            guessButton.Name = "guessButton";
+            guessButton.Size = new Size(48, 23);
+            guessButton.TabIndex = 1;
+            guessButton.Text = "Try";
+            guessButton.UseVisualStyleBackColor = true;
+            guessButton.Click += guessButton_Click;
             // 
-            // label1
+            // instructionLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Druk Wide Bold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(274, 73);
-            label1.Name = "label1";
-            label1.Size = new Size(232, 39);
-            label1.TabIndex = 3;
-            label1.Text = "Welcome!";
+            instructionLabel.AccessibleName = "instructionLabel";
+            instructionLabel.AutoSize = true;
+            instructionLabel.Location = new Point(29, 41);
+            instructionLabel.Name = "instructionLabel";
+            instructionLabel.Size = new Size(82, 15);
+            instructionLabel.TabIndex = 2;
+            instructionLabel.Text = "Enter number:";
+            // 
+            // guessTextBox
+            // 
+            guessTextBox.AccessibleName = "guessTextBox";
+            guessTextBox.Location = new Point(117, 38);
+            guessTextBox.Name = "guessTextBox";
+            guessTextBox.Size = new Size(100, 23);
+            guessTextBox.TabIndex = 3;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(button1);
+            ClientSize = new Size(309, 97);
+            Controls.Add(guessTextBox);
+            Controls.Add(instructionLabel);
+            Controls.Add(guessButton);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
-        private Label label1;
+        private Button guessButton;
+        private Label instructionLabel;
+        private TextBox guessTextBox;
     }
 }
