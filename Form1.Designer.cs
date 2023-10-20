@@ -28,49 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            label1 = new Label();
+            panel = new Panel();
             SuspendLayout();
             // 
-            // button1
+            // panel
             // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.Font = new Font("Druk Wide Bold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(315, 157);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 50);
-            button1.TabIndex = 0;
-            button1.Text = "Bio";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += GetNotificationBio;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Druk Wide Bold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(274, 73);
-            label1.Name = "label1";
-            label1.Size = new Size(232, 39);
-            label1.TabIndex = 3;
-            label1.Text = "Welcome!";
+            panel.BackColor = SystemColors.ControlLight;
+            panel.Location = new Point(234, 109);
+            panel.Name = "panel";
+            panel.Size = new Size(223, 126);
+            panel.TabIndex = 0;
+            panel.MouseDown += MainForm_MouseDown;
+            panel.MouseMove += MainForm_MouseMove;
+            panel.MouseUp += MainForm_MouseUp;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(button1);
+            ClientSize = new Size(700, 338);
+            Controls.Add(panel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
+            MouseDown += MainForm_MouseDown;
+            MouseMove += MainForm_MouseMove;
+            MouseUp += MainForm_MouseUp;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Label label1;
+        private Panel panel;
     }
 }

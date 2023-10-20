@@ -1,4 +1,6 @@
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
@@ -7,27 +9,49 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true;
+
+            panel.Location = new Point(10, 10);
+            panel.Size = new Size(ClientRectangle.Width - 20, ClientRectangle.Height - 20);
+            panel.BackColor = Color.Gray;
         }
 
-        private void GetNotificationBio(object sender, EventArgs e)
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            string title = "Bio";
-            string message = "My name is Alexander Kalinin. \n" +
-                "I`m 15 y.o. \n" +
-                "I`m Software Engineer.";
-            var resultDialog = MessageBox.Show(message, title, MessageBoxButtons.OK);
-            if (resultDialog == DialogResult.OK)
+            if (e.Button == MouseButtons.Left)
             {
-                string title2 = "Knowledge";
-                string message2 = "I know programming languages: C#, C++, C. \n" +
-                    "I have a project in C#, \"Dictionary\".";
-                var resultDialog2 = MessageBox.Show(message2, title2, MessageBoxButtons.OK);
-                if (resultDialog2 == DialogResult.OK)
+                if (Control.ModifierKeys == Keys.Control)
                 {
-                    string message3 = "That`s all!";
-                    int symbolcount = (message.Length + message2.Length + message3.Length) / 3;
-                    MessageBox.Show(message3, "" + symbolcount + "");
+                    Application.Exit();
                 }
+                else
+                {
+                    if (panel.ClientRectangle.Contains(e.Location))
+                    {
+                        MessageBox.Show("The point is inside the rectangle.");
+                    }
+                    else if (e.X >= panel.Left && e.X <= panel.Right && e.Y >= panel.Top && e.Y <= panel.Bottom)
+                    {
+                        MessageBox.Show("The point is on the border of the rectangle.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The point is outside the rectangle.");
+                    }
+                }
+            }
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            Text = $"X = {e.X}, Y = {e.Y}";
+        }
+
+        private void MainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Text = $"Width = {panel.ClientRectangle.Width}, Height = {panel.ClientRectangle.Height}";
             }
         }
     }
